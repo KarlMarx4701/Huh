@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "921672614780",
+    "firebase_url": "https://universal-translator-2d4ab.firebaseio.com",
+    "project_id": "universal-translator-2d4ab",
+    "storage_bucket": "universal-translator-2d4ab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:921672614780:android:b5d75907de594a2d",
+        "android_client_info": {
+          "package_name": "com.google.firebase.codelab.friendlychat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "921672614780-91cr84724la8dp36kmrba51fln4bpq7t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.google.firebase.codelab.friendlychat",
+            "certificate_hash": "8DD49A88027741C35D2E37CE4066E9CD4A421AF7"
+          }
+        },
+        {
+          "client_id": "921672614780-8uphqh3sv7244sec6irdt3iltm9pktp9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCn-kRUO4EZsj7L7Yj9c-cMJJfNsv2XSIQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "921672614780-8uphqh3sv7244sec6irdt3iltm9pktp9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:921672614780:android:1914fcf8a50fc75d",
+        "android_client_info": {
+          "package_name": "edu.bklawsonbsu.huh"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "921672614780-i8dn13o1tc19f6h9qd540r18ni8of2r0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.bklawsonbsu.huh",
+            "certificate_hash": "8DD49A88027741C35D2E37CE4066E9CD4A421AF7"
+          }
+        },
+        {
+          "client_id": "921672614780-8uphqh3sv7244sec6irdt3iltm9pktp9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCn-kRUO4EZsj7L7Yj9c-cMJJfNsv2XSIQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "921672614780-8uphqh3sv7244sec6irdt3iltm9pktp9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
