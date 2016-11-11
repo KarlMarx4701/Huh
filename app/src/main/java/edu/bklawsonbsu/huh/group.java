@@ -14,16 +14,17 @@ public class Group {
     private String groupName;
     private String photoUrl;
     private String users;
-    private List<String> usersList;
+    private String key;
 
     public Group() {
 
     }
 
-    public Group(String groupName, String photoUrl, String users) {
+    public Group(String groupName, String photoUrl, String users, String key) {
         this.groupName = groupName;
         this.photoUrl = photoUrl;
         this.users = users;
+        this.key = key;
     }
 
     public String getGroupName() {
@@ -38,6 +39,10 @@ public class Group {
         return users;
     }
 
+    public String getKey() {
+        return key;
+    }
+
     public void setGroupName(String groupName) {
         this.groupName = groupName;
     }
@@ -48,6 +53,10 @@ public class Group {
 
     public void setUsers(String userString) {
         this.users = userString;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
 }

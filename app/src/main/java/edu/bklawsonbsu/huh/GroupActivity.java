@@ -1,20 +1,16 @@
 package edu.bklawsonbsu.huh;
 
+import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -24,21 +20,25 @@ import java.net.URI;
 
 public class GroupActivity extends AppCompatActivity {
     private static final String TAG = "GroupActivity";
+    private KeyStore keyStore = new KeyStore();
 
     private FirebaseAuth firebaseAuth;
     private FirebaseUser firebaseUser;
     private String username;
-    private String photoUrl;
 
     private RecyclerView groupList;
     private FirebaseRecyclerAdapter<Group, GroupViewHolder> firebaseRecyclerAdapter;
     private DatabaseReference databaseReference;
     private LinearLayoutManager layoutManager;
 
+    private Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group);
+
+        context = this;
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
@@ -49,7 +49,6 @@ public class GroupActivity extends AppCompatActivity {
             return;
         } else {
             username = firebaseUser.getDisplayName();
-            photoUrl = firebaseUser.getPhotoUrl().toString();
             TextView usernameLogo = (TextView) findViewById(R.id.usernameLogo);
             usernameLogo.setText(username);
         }
@@ -74,8 +73,15 @@ public class GroupActivity extends AppCompatActivity {
             @Override
             protected void populateViewHolder(GroupViewHolder viewHolder, final Group group, int position) {
                 viewHolder.setGroup(group);
-                viewHolder.setOnClick(firebaseUser.getEmail());
+                viewHolder.setOnClick(firebaseUser.getEmail(), new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        keyStore.setKey(group.getKey());
+                        startMessaging();
+                    }
+                });
                 viewHolder.setGroupName(group.getGroupName());
+                viewHolder.checkAllowable(firebaseUser.getEmail().toLowerCase());
             }
         };
         Log.i(TAG ,"Got data!");
@@ -91,6 +97,10 @@ public class GroupActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void startMessaging() {
+        startActivity(new Intent(context, MessageActivity.class));
     }
 
 }
