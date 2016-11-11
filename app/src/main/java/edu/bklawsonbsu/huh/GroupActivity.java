@@ -72,7 +72,9 @@ public class GroupActivity extends AppCompatActivity {
                 databaseReference.child("Groups")
         ) {
             @Override
-            protected void populateViewHolder(GroupViewHolder viewHolder, Group group, int position) {
+            protected void populateViewHolder(GroupViewHolder viewHolder, final Group group, int position) {
+                viewHolder.setGroup(group);
+                viewHolder.setOnClick(firebaseUser.getEmail());
                 viewHolder.setGroupName(group.getGroupName());
             }
         };

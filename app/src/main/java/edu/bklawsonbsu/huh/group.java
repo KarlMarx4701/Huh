@@ -14,6 +14,7 @@ public class Group {
     private String groupName;
     private String photoUrl;
     private String users;
+    private List<String> usersList;
 
     public Group() {
 
