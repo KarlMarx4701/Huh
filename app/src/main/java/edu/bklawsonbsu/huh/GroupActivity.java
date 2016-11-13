@@ -77,6 +77,7 @@ public class GroupActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         keyStore.setKey(group.getKey());
+                        keyStore.setGroupName(group.getGroupName());
                         startMessaging();
                     }
                 });
