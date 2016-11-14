@@ -1,4 +1,4 @@
-package edu.bklawsonbsu.huh;
+package edu.bklawsonbsu.huh.messageClasses;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -14,9 +14,10 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import org.w3c.dom.Text;
-
 import java.util.Calendar;
+
+import edu.bklawsonbsu.huh.KeyStore;
+import edu.bklawsonbsu.huh.R;
 
 public class MessageActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;

@@ -1,4 +1,4 @@
-package edu.bklawsonbsu.huh;
+package edu.bklawsonbsu.huh.groupClasses;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

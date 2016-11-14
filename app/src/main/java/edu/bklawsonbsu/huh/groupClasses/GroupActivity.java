@@ -1,4 +1,4 @@
-package edu.bklawsonbsu.huh;
+package edu.bklawsonbsu.huh.groupClasses;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -16,7 +17,10 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.net.URI;
+import edu.bklawsonbsu.huh.KeyStore;
+import edu.bklawsonbsu.huh.messageClasses.MessageActivity;
+import edu.bklawsonbsu.huh.R;
+import edu.bklawsonbsu.huh.SignInActivity;
 
 public class GroupActivity extends AppCompatActivity {
     private static final String TAG = "GroupActivity";
@@ -30,6 +34,8 @@ public class GroupActivity extends AppCompatActivity {
     private FirebaseRecyclerAdapter<Group, GroupViewHolder> firebaseRecyclerAdapter;
     private DatabaseReference databaseReference;
     private LinearLayoutManager layoutManager;
+
+    private Button signoutButton;
 
     private Context context;
 
@@ -52,6 +58,17 @@ public class GroupActivity extends AppCompatActivity {
             TextView usernameLogo = (TextView) findViewById(R.id.usernameLogo);
             usernameLogo.setText(username);
         }
+
+        signoutButton = (Button) findViewById(R.id.signoutButton);
+        signoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                firebaseAuth.signOut();
+                startActivity(new Intent(context, SignInActivity.class));
+                finish();
+                return;
+            }
+        });
 
         groupList = (RecyclerView) findViewById(R.id.groupList);
         setupDataBind();

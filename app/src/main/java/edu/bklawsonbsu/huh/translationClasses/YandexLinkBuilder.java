@@ -1,6 +1,4 @@
-package edu.bklawsonbsu.huh.translation;
-
-import android.util.Log;
+package edu.bklawsonbsu.huh.translationClasses;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;

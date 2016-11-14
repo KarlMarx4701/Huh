@@ -1,13 +1,12 @@
-package edu.bklawsonbsu.huh;
+package edu.bklawsonbsu.huh.messageClasses;
 
-import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import edu.bklawsonbsu.huh.translation.Translator;
+import edu.bklawsonbsu.huh.R;
+import edu.bklawsonbsu.huh.translationClasses.Translator;
 
 public class MessageViewHolder extends RecyclerView.ViewHolder{
     private Message message;

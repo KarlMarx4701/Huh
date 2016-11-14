@@ -1,4 +1,4 @@
-package edu.bklawsonbsu.huh.translation;
+package edu.bklawsonbsu.huh.translationClasses;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
