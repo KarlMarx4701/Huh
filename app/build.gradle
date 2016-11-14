@@ -5,7 +5,7 @@ android {
         release {
             keyAlias 'signedKey'
             keyPassword 'android'
-            storeFile file('app\\src\\main\\res\\signedKeyStore.jks')
+            storeFile file('src\\main\\res\\signedKeyStore.jks')
             storePassword 'android'
         }
         debug {

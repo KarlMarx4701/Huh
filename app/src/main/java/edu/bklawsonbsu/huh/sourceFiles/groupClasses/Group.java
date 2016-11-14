@@ -7,7 +7,7 @@ public class Group {
     private String groupName;
     private String photoUrl;
     private String users;
-    private ArrayList<String> usersAllowedList;
+    private ArrayList<String> usersAllowedList = new ArrayList<>();
     private String key;
 
     @SuppressWarnings("unused") //Empty Constructor must be in the class for recycler view.
@@ -18,8 +18,6 @@ public class Group {
         this.photoUrl = photoUrl;
         this.users = users;
         this.key = key;
-        usersAllowedList = new ArrayList<>();
-        splitUsers();
     }
 
     public void splitUsers() {
@@ -62,6 +60,7 @@ public class Group {
     }
 
     public boolean isAllowed(String email) {
+        splitUsers();
         return usersAllowedList.contains(email);
     }
 

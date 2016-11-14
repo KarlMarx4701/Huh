@@ -32,7 +32,7 @@ public class GroupViewHolder extends RecyclerView.ViewHolder{
     }
 
     public void checkAllowable(String email) {
-        if (group.isAllowed(email)) {
+        if (!group.isAllowed(email)) {
             groupNameButton.setClickable(false);
             groupNameButton.setBackgroundColor(Color.RED);
             groupNameButton.setText("");
