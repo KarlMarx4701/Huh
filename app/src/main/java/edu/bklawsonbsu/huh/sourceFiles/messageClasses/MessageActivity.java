@@ -1,4 +1,4 @@
-package edu.bklawsonbsu.huh.messageClasses;
+package edu.bklawsonbsu.huh.sourceFiles.messageClasses;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -16,7 +16,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Calendar;
 
-import edu.bklawsonbsu.huh.KeyStore;
+import edu.bklawsonbsu.huh.sourceFiles.KeyStore;
 import edu.bklawsonbsu.huh.R;
 
 public class MessageActivity extends AppCompatActivity {

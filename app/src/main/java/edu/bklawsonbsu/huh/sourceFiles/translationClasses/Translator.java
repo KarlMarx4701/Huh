@@ -1,4 +1,4 @@
-package edu.bklawsonbsu.huh.translationClasses;
+package edu.bklawsonbsu.huh.sourceFiles.translationClasses;
 
 import android.os.Process;
 import android.util.Log;

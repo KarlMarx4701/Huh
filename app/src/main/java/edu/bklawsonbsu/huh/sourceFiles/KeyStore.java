@@ -1,4 +1,4 @@
-package edu.bklawsonbsu.huh;
+package edu.bklawsonbsu.huh.sourceFiles;
 
 public class KeyStore {
     private static String key;

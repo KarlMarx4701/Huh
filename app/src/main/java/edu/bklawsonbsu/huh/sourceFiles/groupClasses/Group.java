@@ -1,19 +1,12 @@
-package edu.bklawsonbsu.huh.groupClasses;
+package edu.bklawsonbsu.huh.sourceFiles.groupClasses;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
-
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Group {
     private String groupName;
     private String photoUrl;
     private String users;
+    private ArrayList<String> usersAllowedList;
     private String key;
 
     public Group() {
@@ -25,6 +18,15 @@ public class Group {
         this.photoUrl = photoUrl;
         this.users = users;
         this.key = key;
+        usersAllowedList = new ArrayList<>();
+        splitUsers();
+    }
+
+    public void splitUsers() {
+        String[] tempArr = users.split(",");
+        for (String item: tempArr) {
+            usersAllowedList.add(item.toLowerCase());
+        }
     }
 
     public String getGroupName() {
@@ -57,6 +59,10 @@ public class Group {
 
     public void setKey(String key) {
         this.key = key;
+    }
+
+    public boolean isAllowed(String email) {
+        return usersAllowedList.contains(email);
     }
 
 }

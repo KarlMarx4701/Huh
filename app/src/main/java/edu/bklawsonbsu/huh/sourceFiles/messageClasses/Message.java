@@ -1,4 +1,4 @@
-package edu.bklawsonbsu.huh.messageClasses;
+package edu.bklawsonbsu.huh.sourceFiles.messageClasses;
 
 public class Message {
     private String username;

@@ -1,4 +1,4 @@
-package edu.bklawsonbsu.huh.groupClasses;
+package edu.bklawsonbsu.huh.sourceFiles.groupClasses;
 
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
@@ -16,28 +16,18 @@ public class GroupViewHolder extends RecyclerView.ViewHolder{
     private Button groupNameButton;
     private View.OnClickListener buttonListener;
     private Group group;
-    private List<String> usersAllowedList;
 
     public GroupViewHolder(View itemView) {
         super(itemView);
         groupPhoto = (ImageView) itemView.findViewById(R.id.groupLogo);
         groupNameButton = (Button) itemView.findViewById(R.id.group_name_button);
-        usersAllowedList = new ArrayList<>();
     }
 
     public void setGroup(Group group) {
         this.group = group;
     }
 
-    public void splitUsers() {
-        String[] tempArr = group.getUsers().split(",");
-
-        for (String item: tempArr) {
-            usersAllowedList.add(item.toLowerCase());
-        }
-    }
-
-    public void setOnClick(String email, View.OnClickListener listener) {
+    public void setOnClick(View.OnClickListener listener) {
         buttonListener = listener;
     }
 
@@ -47,8 +37,7 @@ public class GroupViewHolder extends RecyclerView.ViewHolder{
     }
 
     public void checkAllowable(String email) {
-        splitUsers();
-        if (!usersAllowedList.contains(email)) {
+        if (group.isAllowed(email)) {
             groupNameButton.setClickable(false);
             groupNameButton.setBackgroundColor(Color.RED);
             groupNameButton.setText("");

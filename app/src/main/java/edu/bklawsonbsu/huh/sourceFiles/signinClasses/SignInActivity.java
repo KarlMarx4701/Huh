@@ -1,4 +1,4 @@
-package edu.bklawsonbsu.huh;
+package edu.bklawsonbsu.huh.sourceFiles.signinClasses;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -23,18 +23,15 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
-import edu.bklawsonbsu.huh.groupClasses.GroupActivity;
+import edu.bklawsonbsu.huh.R;
+import edu.bklawsonbsu.huh.sourceFiles.groupClasses.GroupActivity;
 
 
 public class SignInActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
     private static final int RC_SIGN_IN = 9001;
-
-    private View.OnClickListener signinButtonListener;
     private SignInButton signInButton;
-    private GoogleSignInOptions googleSignInOptions;
     private GoogleApiClient googleApiClient;
     private FirebaseAuth firebaseAuth;
-
     private static final String TAG = "SignIn";
 
     @Override
@@ -48,7 +45,7 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
     }
 
     public void setupButtonListener() {
-        signinButtonListener = new View.OnClickListener() {
+        View.OnClickListener signinButtonListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 signIn();
@@ -58,8 +55,8 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
     }
 
     private void setupSignInOptions() {
-        googleSignInOptions = new GoogleSignInOptions
-                .Builder(googleSignInOptions.DEFAULT_SIGN_IN)
+        GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions
+                .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
@@ -77,6 +74,7 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
+    @SuppressWarnings("unused") //Suppressed due to inspection warnings. Method is used by Firebase objects but not called.
     public void handleFirebaseAuthResult(AuthResult authResult) {
         if (authResult != null) {
             FirebaseUser user = authResult.getUser();

@@ -1,4 +1,4 @@
-package edu.bklawsonbsu.huh.translationClasses;
+package edu.bklawsonbsu.huh.sourceFiles.translationClasses;
 
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;

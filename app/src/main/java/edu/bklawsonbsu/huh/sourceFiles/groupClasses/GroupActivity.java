@@ -1,4 +1,4 @@
-package edu.bklawsonbsu.huh.groupClasses;
+package edu.bklawsonbsu.huh.sourceFiles.groupClasses;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,10 +17,10 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import edu.bklawsonbsu.huh.KeyStore;
-import edu.bklawsonbsu.huh.messageClasses.MessageActivity;
+import edu.bklawsonbsu.huh.sourceFiles.KeyStore;
+import edu.bklawsonbsu.huh.sourceFiles.messageClasses.MessageActivity;
 import edu.bklawsonbsu.huh.R;
-import edu.bklawsonbsu.huh.SignInActivity;
+import edu.bklawsonbsu.huh.sourceFiles.signinClasses.SignInActivity;
 
 public class GroupActivity extends AppCompatActivity {
     private static final String TAG = "GroupActivity";
@@ -43,12 +43,9 @@ public class GroupActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group);
-
         context = this;
-
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
-
         if (firebaseUser == null) {
             startActivity(new Intent(this, SignInActivity.class));
             finish();
@@ -58,7 +55,6 @@ public class GroupActivity extends AppCompatActivity {
             TextView usernameLogo = (TextView) findViewById(R.id.usernameLogo);
             usernameLogo.setText(username);
         }
-
         signoutButton = (Button) findViewById(R.id.signoutButton);
         signoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,7 +65,6 @@ public class GroupActivity extends AppCompatActivity {
                 return;
             }
         });
-
         groupList = (RecyclerView) findViewById(R.id.groupList);
         setupDataBind();
         groupList.setLayoutManager(layoutManager);
@@ -90,7 +85,7 @@ public class GroupActivity extends AppCompatActivity {
             @Override
             protected void populateViewHolder(GroupViewHolder viewHolder, final Group group, int position) {
                 viewHolder.setGroup(group);
-                viewHolder.setOnClick(firebaseUser.getEmail(), new View.OnClickListener() {
+                viewHolder.setOnClick(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         keyStore.setKey(group.getKey());
