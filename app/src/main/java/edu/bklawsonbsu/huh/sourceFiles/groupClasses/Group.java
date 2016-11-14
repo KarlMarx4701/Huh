@@ -9,9 +9,7 @@ public class Group {
     private ArrayList<String> usersAllowedList;
     private String key;
 
-    public Group() {
-
-    }
+    public Group() {}
 
     public Group(String groupName, String photoUrl, String users, String key) {
         this.groupName = groupName;

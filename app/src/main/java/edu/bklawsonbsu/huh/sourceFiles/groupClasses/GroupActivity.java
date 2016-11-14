@@ -25,18 +25,11 @@ import edu.bklawsonbsu.huh.sourceFiles.signinClasses.SignInActivity;
 public class GroupActivity extends AppCompatActivity {
     private static final String TAG = "GroupActivity";
     private KeyStore keyStore = new KeyStore();
-
     private FirebaseAuth firebaseAuth;
     private FirebaseUser firebaseUser;
-    private String username;
-
     private RecyclerView groupList;
     private FirebaseRecyclerAdapter<Group, GroupViewHolder> firebaseRecyclerAdapter;
-    private DatabaseReference databaseReference;
     private LinearLayoutManager layoutManager;
-
-    private Button signoutButton;
-
     private Context context;
 
     @Override
@@ -50,13 +43,14 @@ public class GroupActivity extends AppCompatActivity {
 
     public void setupDataBind() {
         layoutManager = new LinearLayoutManager(this);
-        databaseReference = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
         firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Group, GroupViewHolder>(
                 Group.class,
                 R.layout.activity_group_chat,
                 GroupViewHolder.class,
                 databaseReference.child("Groups")
         ) {
+            @SuppressWarnings("ConstantConditions")
             @Override
             protected void populateViewHolder(GroupViewHolder viewHolder, final Group group, int position) {
                 viewHolder.setGroup(group);
@@ -107,23 +101,21 @@ public class GroupActivity extends AppCompatActivity {
         if (firebaseUser == null) {
             startActivity(new Intent(this, SignInActivity.class));
             finish();
-            return;
         } else {
-            username = firebaseUser.getDisplayName();
+            String username = firebaseUser.getDisplayName();
             TextView usernameLogo = (TextView) findViewById(R.id.usernameLogo);
             usernameLogo.setText(username);
         }
     }
 
     public void initializeSingoutButton() {
-        signoutButton = (Button) findViewById(R.id.signoutButton);
+        Button signoutButton = (Button) findViewById(R.id.signoutButton);
         signoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 firebaseAuth.signOut();
                 startActivity(new Intent(context, SignInActivity.class));
                 finish();
-                return;
             }
         });
     }

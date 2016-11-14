@@ -4,22 +4,17 @@ import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import edu.bklawsonbsu.huh.R;
 
+@SuppressWarnings("WeakerAccess")
 public class GroupViewHolder extends RecyclerView.ViewHolder{
-    private ImageView groupPhoto;
     private Button groupNameButton;
     private View.OnClickListener buttonListener;
     private Group group;
 
     public GroupViewHolder(View itemView) {
         super(itemView);
-        groupPhoto = (ImageView) itemView.findViewById(R.id.groupLogo);
         groupNameButton = (Button) itemView.findViewById(R.id.group_name_button);
     }
 
