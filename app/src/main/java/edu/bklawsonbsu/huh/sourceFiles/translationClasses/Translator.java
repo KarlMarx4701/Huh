@@ -47,6 +47,7 @@ public class Translator {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        thread.interrupt();
         return result;
 
     }
