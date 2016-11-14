@@ -44,32 +44,7 @@ public class GroupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group);
         context = this;
-        firebaseAuth = FirebaseAuth.getInstance();
-        firebaseUser = firebaseAuth.getCurrentUser();
-        if (firebaseUser == null) {
-            startActivity(new Intent(this, SignInActivity.class));
-            finish();
-            return;
-        } else {
-            username = firebaseUser.getDisplayName();
-            TextView usernameLogo = (TextView) findViewById(R.id.usernameLogo);
-            usernameLogo.setText(username);
-        }
-        signoutButton = (Button) findViewById(R.id.signoutButton);
-        signoutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                firebaseAuth.signOut();
-                startActivity(new Intent(context, SignInActivity.class));
-                finish();
-                return;
-            }
-        });
-        groupList = (RecyclerView) findViewById(R.id.groupList);
-        setupDataBind();
-        groupList.setLayoutManager(layoutManager);
-        groupList.setAdapter(firebaseRecyclerAdapter);
-        Log.i(TAG, "Set adapter!");
+        initializeGroupActivity();
 
     }
 
@@ -108,6 +83,47 @@ public class GroupActivity extends AppCompatActivity {
                         || positionStart >= (groupCount - 1) && lastPosition == (positionStart - 1)) {
                     groupList.scrollToPosition(positionStart);
                 }
+            }
+        });
+    }
+
+    public void initializeGroupActivity() {
+        initializeFirebaseUser();
+        initializeSingoutButton();
+        initializeGroupList();
+    }
+
+    private void initializeGroupList() {
+        groupList = (RecyclerView) findViewById(R.id.groupList);
+        setupDataBind();
+        groupList.setLayoutManager(layoutManager);
+        groupList.setAdapter(firebaseRecyclerAdapter);
+        Log.i(TAG, "Set adapter!");
+    }
+
+    public void initializeFirebaseUser() {
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseUser = firebaseAuth.getCurrentUser();
+        if (firebaseUser == null) {
+            startActivity(new Intent(this, SignInActivity.class));
+            finish();
+            return;
+        } else {
+            username = firebaseUser.getDisplayName();
+            TextView usernameLogo = (TextView) findViewById(R.id.usernameLogo);
+            usernameLogo.setText(username);
+        }
+    }
+
+    public void initializeSingoutButton() {
+        signoutButton = (Button) findViewById(R.id.signoutButton);
+        signoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                firebaseAuth.signOut();
+                startActivity(new Intent(context, SignInActivity.class));
+                finish();
+                return;
             }
         });
     }

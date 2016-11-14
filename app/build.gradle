@@ -5,13 +5,13 @@ android {
         release {
             keyAlias 'signedKey'
             keyPassword 'android'
-            storeFile file('E:/Ben/signedKeyStore.jks')
+            storeFile file('app\\src\\main\\res\\signedKeyStore.jks')
             storePassword 'android'
         }
         debug {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
-            storeFile file('C:/Users/Ben/.android/debug.keystore')
+            storeFile file('%USERPROFILE%/.android/debug.keystore')
             storePassword 'android'
         }
     }
