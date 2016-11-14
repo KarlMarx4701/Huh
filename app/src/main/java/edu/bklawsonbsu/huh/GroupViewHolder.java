@@ -55,5 +55,4 @@ public class GroupViewHolder extends RecyclerView.ViewHolder{
             groupNameButton.setText("");
         }
     }
-
 }

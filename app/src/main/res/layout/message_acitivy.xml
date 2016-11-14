@@ -12,13 +12,13 @@
         android:textAlignment="center"
         android:textSize="@dimen/large_text"
         android:background="@color/colorPrimary"
-        />
+        android:textColor="@color/common_google_signin_btn_text_dark_default" />
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="394dp"
+        android:layout_height="match_parent"
         android:id="@+id/messageList"
-        android:layout_weight="1" />
+        android:layout_weight="1.04" />
 
     <LinearLayout
         android:orientation="horizontal"

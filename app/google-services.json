@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "921672614780-4iia8suk08ers1qrs5iuovika7gvn8cl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.google.firebase.codelab.friendlychat",
+            "certificate_hash": "403233B9F341676DD6610BCC9C3181074EFC2D50"
+          }
+        },
+        {
           "client_id": "921672614780-91cr84724la8dp36kmrba51fln4bpq7t.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -58,6 +66,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "921672614780-u9mf1cq9uikcthuim4hqt6pd8001ljbo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.bklawsonbsu.huh",
+            "certificate_hash": "403233B9F341676DD6610BCC9C3181074EFC2D50"
+          }
+        },
         {
           "client_id": "921672614780-i8dn13o1tc19f6h9qd540r18ni8of2r0.apps.googleusercontent.com",
           "client_type": 1,
