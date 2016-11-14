@@ -1,5 +1,6 @@
 package edu.bklawsonbsu.huh.sourceFiles.messageClasses;
 
+@SuppressWarnings("WeakerAccess") // Inspection problems
 public class Message {
     private String username;
     private String text;
@@ -19,6 +20,7 @@ public class Message {
         return username;
     }
 
+    @SuppressWarnings("unused") // Needed for Firebase link/Recycler View
     public void setUsername(String username) {
         this.username = username;
     }

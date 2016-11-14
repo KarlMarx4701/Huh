@@ -10,18 +10,16 @@ import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Calendar;
 
-import edu.bklawsonbsu.huh.sourceFiles.KeyStore;
 import edu.bklawsonbsu.huh.R;
+import edu.bklawsonbsu.huh.sourceFiles.KeyStore;
 
 public class MessageActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
-    private FirebaseUser firebaseUser;
     private FirebaseRecyclerAdapter<Message, MessageViewHolder> firebaseRecyclerAdapter;
     private LinearLayoutManager linearLayoutManager;
     private DatabaseReference firebaseDatabaseReference;
@@ -33,15 +31,23 @@ public class MessageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.message_acitivy);
+        initializeMessageActivity();
+    }
 
+    public void initializeMessageActivity() {
+        initializeFirebase();
+        setupDataBind();
+        initializeLogo();
+        initializeMessageText();
+    }
+
+    public void initializeFirebase() {
         firebaseDatabaseReference = FirebaseDatabase.getInstance().getReference();
         firebaseAuth = FirebaseAuth.getInstance();
-        firebaseUser = firebaseAuth.getCurrentUser();
         linearLayoutManager = new LinearLayoutManager(this);
+    }
 
-        TextView groupNameLogo = (TextView) findViewById(R.id.groupNameMessaging);
-        groupNameLogo.setText(keyStore.getGroupName());
-
+    public void setupDataBind() {
         firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Message, MessageViewHolder>(
                 Message.class,
                 R.layout.message,
@@ -70,10 +76,18 @@ public class MessageActivity extends AppCompatActivity {
                 }
             }
         });
+    }
 
+    public void initializeLogo() {
+        TextView groupNameLogo = (TextView) findViewById(R.id.groupNameMessaging);
+        groupNameLogo.setText(keyStore.getGroupName());
+    }
+
+    public void initializeMessageText() {
         messageSendText = (TextView) findViewById(R.id.messageTextBox);
         Button sendButton = (Button) findViewById(R.id.sendMessagningButton);
         sendButton.setOnClickListener(new View.OnClickListener() {
+            @SuppressWarnings("ConstantConditions")
             @Override
             public void onClick(View v) {
                 if (!messageSendText.getText().equals("")) {

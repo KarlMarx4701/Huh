@@ -8,12 +8,12 @@ import android.widget.TextView;
 import edu.bklawsonbsu.huh.R;
 import edu.bklawsonbsu.huh.sourceFiles.translationClasses.Translator;
 
+@SuppressWarnings("WeakerAccess") //Inspection problems
 public class MessageViewHolder extends RecyclerView.ViewHolder{
     private Message message;
     private TextView messageText;
     private TextView messageUsername;
     private TextView messageTime;
-    private Button translateButton;
     private static Translator translator;
 
 
@@ -23,7 +23,7 @@ public class MessageViewHolder extends RecyclerView.ViewHolder{
         messageText = (TextView) itemView.findViewById(R.id.messageText);
         messageUsername = (TextView) itemView.findViewById(R.id.messageUsername);
         messageTime = (TextView) itemView.findViewById(R.id.messageTimeStamp);
-        translateButton = (Button) itemView.findViewById(R.id.translateButton);
+        Button translateButton = (Button) itemView.findViewById(R.id.translateButton);
         translateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,7 +40,7 @@ public class MessageViewHolder extends RecyclerView.ViewHolder{
     }
 
     public void translateText(String text) {
-        String translatedText = "";
+        String translatedText;
         translatedText = translator.translateText(text, "es");
         messageText.setText(translatedText);
     }
