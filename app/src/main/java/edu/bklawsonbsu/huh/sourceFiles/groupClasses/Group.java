@@ -2,6 +2,7 @@ package edu.bklawsonbsu.huh.sourceFiles.groupClasses;
 
 import java.util.ArrayList;
 
+@SuppressWarnings({"WeakerAccess", "unused"}) // Both must be used for recycler view and connection to the database.
 public class Group {
     private String groupName;
     private String photoUrl;
@@ -9,6 +10,7 @@ public class Group {
     private ArrayList<String> usersAllowedList;
     private String key;
 
+    @SuppressWarnings("unused") //Empty Constructor must be in the class for recycler view.
     public Group() {}
 
     public Group(String groupName, String photoUrl, String users, String key) {
