@@ -9,7 +9,7 @@ public class KeyStore {
     }
 
     public void setKey(String key) {
-        this.key = key;
+        KeyStore.key = key;
     }
 
     public String getKey() {
