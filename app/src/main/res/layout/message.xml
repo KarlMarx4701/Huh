@@ -6,14 +6,14 @@
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
     android:layout_marginBottom="30dp"
-    android:backgroundTint="@color/backgroudMessage">
+    android:backgroundTint="@color/backgroundMessage">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="0.05"
-        android:background="@color/backgroudMessage"
+        android:background="@color/backgroundMessage"
         android:id="@+id/messageBackground">
 
         <TextView
@@ -24,45 +24,32 @@
             android:text="This is a message!"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textSize="@dimen/messageTextSize"
-            android:textColor="@color/common_google_signin_btn_text_dark_default" />
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            />
 
-        <LinearLayout
-            android:orientation="horizontal"
+        <TextView
+            android:text="Username"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="0.05">
+            android:id="@+id/messageUsername"
+            android:layout_weight="0.05"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="18sp"
+            android:gravity="bottom|left"
+            android:textColor="@color/common_google_signin_btn_text_light_default"
+            android:textAlignment="textEnd" />
 
-            <TextView
-                android:text="Username"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/messageUsername"
-                android:layout_weight="1"
-                android:textAppearance="@style/TextAppearance.AppCompat"
-                android:textSize="@dimen/messageTextSize"
-                android:gravity="bottom|left"
-                android:textColor="@color/common_google_signin_btn_text_dark_default" />
-
-            <TextView
-                android:text="Timestamp"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/messageTimeStamp"
-                android:layout_weight="0.87"
-                android:textAlignment="textEnd"
-                android:textSize="@dimen/messageTimestampSize"
-                android:gravity="bottom|end" />
-
-        </LinearLayout>
-
-        <Button
-            android:text="Translate"
-            android:layout_width="wrap_content"
-            android:layout_height="36dp"
-            android:id="@+id/translateButton"
-            android:textAlignment="center"
-            android:layout_gravity="center"
-            android:textSize="12sp" />
+        <TextView
+            android:text="Timestamp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/messageTimeStamp"
+            android:layout_weight="0.05"
+            android:textAlignment="textEnd"
+            android:textSize="@dimen/messageTimestampSize"
+            android:gravity="bottom|end" />
 
     </LinearLayout>
 

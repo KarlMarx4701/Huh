@@ -1,9 +1,12 @@
 package edu.bklawsonbsu.huh.sourceFiles.groupClasses;
 
 import android.graphics.Color;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.ViewManager;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import edu.bklawsonbsu.huh.R;
 
@@ -36,6 +39,8 @@ public class GroupViewHolder extends RecyclerView.ViewHolder{
             groupNameButton.setClickable(false);
             groupNameButton.setBackgroundColor(Color.RED);
             groupNameButton.setText("");
+            LinearLayout layout = (LinearLayout) itemView.findViewById(R.id.group_list_indi);
+            ((ViewManager)layout.getParent()).removeView(layout);
         }
     }
 }

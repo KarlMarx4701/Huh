@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.android.gms.ads.MobileAds;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -56,7 +57,7 @@ public class MessageActivity extends AppCompatActivity {
         ) {
             @Override
             public void populateViewHolder(MessageViewHolder messageHolder, final Message message, int position) {
-                messageHolder.setMessage(message);
+                messageHolder.setMessage(message, firebaseAuth.getCurrentUser().getDisplayName());
             }
         };
 

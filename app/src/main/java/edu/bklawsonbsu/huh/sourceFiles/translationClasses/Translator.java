@@ -6,10 +6,10 @@ import android.util.Log;
 import org.w3c.dom.Document;
 
 public class Translator {
-    private static YandexLinkBuilder linkBuilder;
-    private static XMLFetcher dataFetcher;
-    private static String result;
-    private static String link;
+    private YandexLinkBuilder linkBuilder;
+    private XMLFetcher dataFetcher;
+    private String result;
+    private String link;
     private Thread thread;
 
     public Translator() {

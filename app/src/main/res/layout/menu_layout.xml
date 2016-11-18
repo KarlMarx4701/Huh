@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:paddingTop="25dp"
+    >
+
+    <Button
+        android:text="Add Group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/addGroup"
+        android:background="@color/common_google_signin_btn_text_dark_default"
+        android:textAlignment="textStart"
+        android:gravity="start"
+        android:textSize="24sp"
+        android:paddingLeft="7dp"
+        android:paddingRight="7dp"
+        android:layout_marginBottom="7dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        />
+
+    <Button
+        android:text="Remove Group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/removeGroup"
+        android:background="@color/common_google_signin_btn_text_dark_default"
+        android:textAlignment="textStart"
+        android:gravity="start"
+        android:textSize="24sp"
+        android:paddingLeft="7dp"
+        android:paddingRight="7dp"
+        android:layout_marginBottom="7dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        />
+
+    <Button
+        android:text="Sign Out"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/signOut"
+        android:background="@color/common_google_signin_btn_text_dark_default"
+        android:textAlignment="textStart"
+        android:gravity="start"
+        android:textSize="24sp"
+        android:paddingLeft="7dp"
+        android:paddingRight="7dp"
+        android:layout_marginBottom="7dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        />
+
+</LinearLayout>
