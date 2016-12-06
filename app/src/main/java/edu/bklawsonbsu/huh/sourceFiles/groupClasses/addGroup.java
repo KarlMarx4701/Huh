@@ -22,7 +22,7 @@ import java.util.ArrayList;
 
 import edu.bklawsonbsu.huh.R;
 
-public class addGroup extends AppCompatActivity {
+public class AddGroup extends AppCompatActivity {
     private EditText groupNameText;
     private EditText groupUserAddEmailText;
     private Spinner colorPicker;

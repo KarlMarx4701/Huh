@@ -17,8 +17,9 @@
         </activity>
         <activity android:name=".sourceFiles.signinClasses.SignInActivity" />
         <activity android:name=".sourceFiles.messageClasses.MessageActivity" />
-        <activity android:name=".sourceFiles.groupClasses.addGroup"></activity>
+        <activity android:name=".sourceFiles.groupClasses.AddGroup"></activity>
         <activity android:name=".sourceFiles.changeLanguageClasses.SelectLanguage"></activity>
+        <activity android:name=".sourceFiles.messageClasses.GroupSettingsActivity"></activity>
     </application>
 
 </manifest>

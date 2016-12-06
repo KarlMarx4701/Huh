@@ -150,7 +150,7 @@ public class GroupActivity extends AppCompatActivity {
     }
 
     public void startAddGroup(){
-        startActivity(new Intent(context, addGroup.class));
+        startActivity(new Intent(context, AddGroup.class));
     }
 
 }
