@@ -6,20 +6,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
+import android.widget.ImageButton;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.google.android.gms.ads.MobileAds;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import edu.bklawsonbsu.huh.sourceFiles.KeyStore;
+import edu.bklawsonbsu.huh.sourceFiles.changeLanguageClasses.SelectLanguage;
 import edu.bklawsonbsu.huh.sourceFiles.messageClasses.MessageActivity;
 import edu.bklawsonbsu.huh.R;
 import edu.bklawsonbsu.huh.sourceFiles.signinClasses.SignInActivity;
@@ -61,6 +59,7 @@ public class GroupActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         keyStore.setKey(group.getKey());
                         keyStore.setGroupName(group.getGroupName());
+                        keyStore.setColor(group.getColor());
                         startMessaging();
                     }
                 });
@@ -87,6 +86,32 @@ public class GroupActivity extends AppCompatActivity {
         initializeFirebaseUser();
         initializeSingoutButton();
         initializeGroupList();
+        initializeAddGroup();
+        initializeChangeLanguage();
+    }
+
+    private void initializeChangeLanguage() {
+        ImageButton changeLanguageButton = (ImageButton) findViewById(R.id.changeLangButton);
+        changeLanguageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startChangeLanguageActivity();
+            }
+        });
+    }
+
+    public void startChangeLanguageActivity() {
+        startActivity(new Intent(context, SelectLanguage.class));
+    }
+
+    private void initializeAddGroup() {
+        ImageButton addGroup = (ImageButton) findViewById(R.id.addgroupButton);
+        addGroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startAddGroup();
+            }
+        });
     }
 
     private void initializeGroupList() {
@@ -109,7 +134,7 @@ public class GroupActivity extends AppCompatActivity {
     }
 
     public void initializeSingoutButton() {
-        Button signoutButton = (Button) findViewById(R.id.signoutButton);
+        ImageButton signoutButton = (ImageButton) findViewById(R.id.signoutbutton);
         signoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -122,6 +147,10 @@ public class GroupActivity extends AppCompatActivity {
 
     public void startMessaging() {
         startActivity(new Intent(context, MessageActivity.class));
+    }
+
+    public void startAddGroup(){
+        startActivity(new Intent(context, addGroup.class));
     }
 
 }

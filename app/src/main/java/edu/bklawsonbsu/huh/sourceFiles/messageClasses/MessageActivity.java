@@ -1,11 +1,14 @@
 package edu.bklawsonbsu.huh.sourceFiles.messageClasses;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -57,14 +60,16 @@ public class MessageActivity extends AppCompatActivity {
         ) {
             @Override
             public void populateViewHolder(MessageViewHolder messageHolder, final Message message, int position) {
-                messageHolder.setMessage(message, firebaseAuth.getCurrentUser().getDisplayName());
+                message.translateText(new KeyStore().getLanguageAbbr());
+                messageHolder.setCurrentUser(firebaseAuth.getCurrentUser().getDisplayName());
+                messageHolder.setObjectData(message.getText(), message.getUsername(), message.getTime());
+                messageHolder.setUserCreatedColor(message.getUsername());
+
             }
         };
-
         messageList = (RecyclerView) findViewById(R.id.messageList);
         messageList.setAdapter(firebaseRecyclerAdapter);
         messageList.setLayoutManager(linearLayoutManager);
-
         firebaseRecyclerAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
             @Override
             public void onItemRangeInserted(int positionStart, int itemCount) {
@@ -82,11 +87,12 @@ public class MessageActivity extends AppCompatActivity {
     public void initializeLogo() {
         TextView groupNameLogo = (TextView) findViewById(R.id.groupNameMessaging);
         groupNameLogo.setText(keyStore.getGroupName());
+        groupNameLogo.setBackgroundColor(Color.parseColor(keyStore.getColor()));
     }
 
     public void initializeMessageText() {
         messageSendText = (TextView) findViewById(R.id.messageTextBox);
-        Button sendButton = (Button) findViewById(R.id.sendMessagningButton);
+        ImageButton sendButton = (ImageButton) findViewById(R.id.sendMessageButton);
         sendButton.setOnClickListener(new View.OnClickListener() {
             @SuppressWarnings("ConstantConditions")
             @Override

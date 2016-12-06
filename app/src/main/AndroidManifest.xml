@@ -15,8 +15,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".sourceFiles.signinClasses.SignInActivity"></activity>
-        <activity android:name=".sourceFiles.messageClasses.MessageActivity"></activity>
+        <activity android:name=".sourceFiles.signinClasses.SignInActivity" />
+        <activity android:name=".sourceFiles.messageClasses.MessageActivity" />
+        <activity android:name=".sourceFiles.groupClasses.addGroup"></activity>
+        <activity android:name=".sourceFiles.changeLanguageClasses.SelectLanguage"></activity>
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_group"
     android:layout_width="match_parent"
@@ -7,8 +8,10 @@
     tools:context=".sourceFiles.groupClasses.GroupActivity"
     android:theme="@style/AppTheme2"
     android:elevation="0dp"
-    android:orientation="vertical"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:layout_centerHorizontal="false"
+    android:baselineAligned="false"
+    android:orientation="vertical">
 
     <LinearLayout
         android:orientation="vertical"
@@ -28,6 +31,40 @@
             android:textColor="@color/common_google_signin_btn_text_dark_default"
             android:textStyle="normal|bold" />
 
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            >
+
+            <ImageButton
+                android:layout_width="75dp"
+                android:layout_height="50dp"
+                app:srcCompat="@drawable/translation"
+                android:id="@+id/changeLangButton"
+                android:layout_weight="0.94"
+                android:scaleType="fitCenter"
+                android:background="@color/transparent" />
+
+            <ImageButton
+                android:layout_width="75dp"
+                android:layout_height="50dp"
+                app:srcCompat="@drawable/addgroup"
+                android:id="@+id/addgroupButton"
+                android:layout_weight="0.94"
+                android:scaleType="fitCenter"
+                android:background="@android:color/transparent" />
+
+            <ImageButton
+                android:layout_height="50dp"
+                app:srcCompat="@drawable/signout"
+                android:id="@+id/signoutbutton"
+                android:scaleType="fitCenter"
+                android:background="@android:color/transparent"
+                android:layout_width="75dp" />
+        </GridLayout>
+
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:id="@+id/groupList"
@@ -38,13 +75,5 @@
 
         </android.support.v7.widget.RecyclerView>
     </LinearLayout>
-
-    <Button
-        android:text="SignOut"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/signoutButton"
-        android:textStyle="normal|bold"
-        />
 
 </LinearLayout>

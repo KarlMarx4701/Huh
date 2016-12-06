@@ -9,15 +9,19 @@ public class Group {
     private String users;
     private ArrayList<String> usersAllowedList = new ArrayList<>();
     private String key;
+    private String color;
+    private String owner;
 
     @SuppressWarnings("unused") //Empty Constructor must be in the class for recycler view.
     public Group() {}
 
-    public Group(String groupName, String photoUrl, String users, String key) {
+    public Group(String groupName, String photoUrl, String users, String key, String color, String owner) {
         this.groupName = groupName;
         this.photoUrl = photoUrl;
         this.users = users;
         this.key = key;
+        this.color = color;
+        this.owner = owner;
     }
 
     public void splitUsers() {
@@ -43,6 +47,14 @@ public class Group {
         return key;
     }
 
+    public String getColor() {
+        return color;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
     public void setGroupName(String groupName) {
         this.groupName = groupName;
     }
@@ -57,6 +69,14 @@ public class Group {
 
     public void setKey(String key) {
         this.key = key;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 
     public boolean isAllowed(String email) {

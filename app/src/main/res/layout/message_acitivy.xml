@@ -34,12 +34,14 @@
             android:id="@+id/messageTextBox"
             android:layout_weight="1.50" />
 
-        <Button
-            android:text="Send"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/sendMessagningButton"
-            android:layout_weight="1" />
+        <ImageButton
+            android:layout_height="50dp"
+            ads:srcCompat="@android:drawable/ic_menu_send"
+            android:id="@+id/sendMessageButton"
+            android:layout_weight="1.50"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:layout_width="65dp" />
 
     </LinearLayout>
 </LinearLayout>

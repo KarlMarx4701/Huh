@@ -1,10 +1,16 @@
 package edu.bklawsonbsu.huh.sourceFiles.messageClasses;
 
+import android.widget.ProgressBar;
+
+import edu.bklawsonbsu.huh.sourceFiles.translationClasses.Translator;
+
 @SuppressWarnings("WeakerAccess") // Inspection problems
 public class Message {
     private String username;
     private String text;
     private String time;
+    private Translator messageTranslator = new Translator();
+    private boolean isTranslated = false;
 
     public Message() {
 
@@ -39,5 +45,12 @@ public class Message {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public void translateText(String langCode) {
+        if (!isTranslated) {
+            text = messageTranslator.translateText(text, langCode);
+            isTranslated = true;
+        }
     }
 }

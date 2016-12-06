@@ -9,7 +9,7 @@ public class GroupTests {
     private Group testGroup;
 
     public GroupTests() {
-        testGroup = new Group("Business Group", "pictureURL", "lawson470189@gmail.com,bstrayer0@gmail.com", "-a111134");
+        testGroup = new Group("Business Group", "pictureURL", "lawson470189@gmail.com,bstrayer0@gmail.com", "-a111134", "#f48c42", "lawson470189@gmail.com");
     }
 
     @Test
@@ -48,6 +48,16 @@ public class GroupTests {
     public void testGroup_isAllowedFalse() {
         String testEmail = "developers@gmail.com";
         Assert.assertEquals(testGroup.isAllowed(testEmail), false);
+    }
+
+    @Test
+    public void testGroup_getColor() {
+        Assert.assertEquals(testGroup.getColor(), "#f48c42");
+    }
+
+    @Test
+    public void testGroup_getOwner() {
+        Assert.assertEquals(testGroup.getOwner(), "lawson470189@gmail.com");
     }
 }
 

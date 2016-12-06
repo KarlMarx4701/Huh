@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">Huh</string>
     <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="groupNameString">Group Name:</string>
+    <string name="color_prompt">Choose a color...</string>
+
+    <string-array name="colors_array">
+        <item>Red</item>
+        <item>Orange</item>
+        <item>Blue</item>
+        <item>Green</item>
+        <item>Purple</item>
+    </string-array>
 </resources>
