@@ -1,8 +1,6 @@
-package edu.bklawsonbsu.huh.sourceFiles.messageClasses;
+package edu.bklawsonbsu.huh.messageClasses;
 
-import android.widget.ProgressBar;
-
-import edu.bklawsonbsu.huh.sourceFiles.translationClasses.Translator;
+import edu.bklawsonbsu.huh.translationClasses.Translator;
 
 @SuppressWarnings("WeakerAccess") // Inspection problems
 public class Message {

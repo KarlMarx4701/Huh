@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--suppress CheckTagEmptyBody -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="edu.bklawsonbsu.huh">
 
     <application
@@ -7,19 +9,20 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".sourceFiles.groupClasses.GroupActivity">
+        android:theme="@style/AppTheme"
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+        <activity android:name=".groupClasses.GroupActivity"></activity>
+        <activity android:name=".signinClasses.SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".sourceFiles.signinClasses.SignInActivity" />
-        <activity android:name=".sourceFiles.messageClasses.MessageActivity" />
-        <activity android:name=".sourceFiles.groupClasses.AddGroup"></activity>
-        <activity android:name=".sourceFiles.changeLanguageClasses.SelectLanguage"></activity>
-        <activity android:name=".sourceFiles.messageClasses.GroupSettingsActivity"></activity>
+        <activity android:name=".messageClasses.MessageActivity" />
+        <activity android:name=".groupClasses.AddGroup"></activity>
+        <activity android:name=".changeLanguageClasses.SelectLanguage"></activity>
+        <activity android:name=".messageClasses.GroupSettingsActivity"></activity>
     </application>
 
 </manifest>

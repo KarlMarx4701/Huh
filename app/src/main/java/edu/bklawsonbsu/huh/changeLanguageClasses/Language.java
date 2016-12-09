@@ -1,5 +1,6 @@
-package edu.bklawsonbsu.huh.sourceFiles.changeLanguageClasses;
+package edu.bklawsonbsu.huh.changeLanguageClasses;
 
+@SuppressWarnings("WeakerAccess") // Inspection Warnings
 public class Language {
     private String languageName;
     private String languageCode;

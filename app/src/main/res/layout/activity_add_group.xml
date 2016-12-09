@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="edu.bklawsonbsu.huh.sourceFiles.groupClasses.AddGroup"
+    tools:context=".groupClasses.AddGroup"
     android:orientation="vertical">
 
     <LinearLayout
@@ -42,40 +42,13 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/groupcolor_layout"
-        android:layout_below="@+id/groupname_layout"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
-
-        <TextView
-            android:text="Color:"
-            android:layout_width="122dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView2"
-            android:textSize="18sp" />
-
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/colorCombo"
-            android:layout_weight="1"
-            android:entries="@array/colors_array"
-            android:prompt="@string/color_prompt"
-            />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/groupadduser_layout"
-        android:layout_below="@id/groupcolor_layout"
+        android:layout_below="@id/groupname_layout"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
         <TextView
-            android:text="User Email:"
+            android:text="@string/user_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView3"
@@ -100,19 +73,20 @@
         >
 
         <Button
-            android:text="Add User"
+            android:text="@string/add_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/adduser_button"
             android:layout_weight="0.42"
-            />
+            tools:ignore="ButtonStyle" />
 
         <Button
-            android:text="Remove User"
+            android:text="@string/remove_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/removeuser_button"
-            android:layout_weight="0.42" />
+            android:layout_weight="0.42"
+            tools:ignore="ButtonStyle" />
     </LinearLayout>
 
     <ScrollView
@@ -133,7 +107,7 @@
     </ScrollView>
 
     <Button
-        android:text="Create"
+        android:text="@string/create"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/create_group_button"

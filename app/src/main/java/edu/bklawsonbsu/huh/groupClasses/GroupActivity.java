@@ -1,4 +1,4 @@
-package edu.bklawsonbsu.huh.sourceFiles.groupClasses;
+package edu.bklawsonbsu.huh.groupClasses;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,15 +16,15 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import edu.bklawsonbsu.huh.sourceFiles.KeyStore;
-import edu.bklawsonbsu.huh.sourceFiles.changeLanguageClasses.SelectLanguage;
-import edu.bklawsonbsu.huh.sourceFiles.messageClasses.MessageActivity;
+import edu.bklawsonbsu.huh.StaticGroupHolder;
+import edu.bklawsonbsu.huh.changeLanguageClasses.SelectLanguage;
+import edu.bklawsonbsu.huh.messageClasses.MessageActivity;
 import edu.bklawsonbsu.huh.R;
-import edu.bklawsonbsu.huh.sourceFiles.signinClasses.SignInActivity;
+import edu.bklawsonbsu.huh.signinClasses.SignInActivity;
 
 public class GroupActivity extends AppCompatActivity {
     private static final String TAG = "GroupActivity";
-    private KeyStore keyStore = new KeyStore();
+    private StaticGroupHolder staticGroupHolder = new StaticGroupHolder();
     private FirebaseAuth firebaseAuth;
     private FirebaseUser firebaseUser;
     private RecyclerView groupList;
@@ -38,33 +38,67 @@ public class GroupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_group);
         context = this;
         initializeGroupActivity();
-
     }
 
+    public void initializeGroupActivity() {
+        initializeFirebaseUser();
+        initializeSingoutButton();
+        initializeGroupList();
+        initializeAddGroup();
+        initializeChangeLanguage();
+    }
+
+    public void initializeFirebaseUser() {
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (firebaseUser == null) {
+            startActivity(new Intent(this, SignInActivity.class));
+        }
+    }
+
+    public void initializeSingoutButton() {
+        ImageButton signoutButton = (ImageButton) findViewById(R.id.signoutbutton);
+        signoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                firebaseAuth.signOut();
+                startActivity(new Intent(context, SignInActivity.class));
+                finish();
+            }
+        });
+    }
+
+    private void initializeGroupList() {
+        groupList = (RecyclerView) findViewById(R.id.groupList);
+        setupDataBind();
+        groupList.setLayoutManager(layoutManager);
+        groupList.setAdapter(firebaseRecyclerAdapter);
+        Log.i(TAG, "Set adapter!");
+    }
+
+    @SuppressWarnings("ConstantConditions") // Inspection Warning for toLowerCase()
     public void setupDataBind() {
         layoutManager = new LinearLayoutManager(this);
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+        final String userEmail = firebaseUser.getEmail().toLowerCase();
         firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Group, GroupViewHolder>(
                 Group.class,
                 R.layout.activity_group_chat,
                 GroupViewHolder.class,
                 databaseReference.child("Groups")
         ) {
-            @SuppressWarnings("ConstantConditions")
             @Override
             protected void populateViewHolder(GroupViewHolder viewHolder, final Group group, int position) {
                 viewHolder.setGroup(group);
                 viewHolder.setOnClick(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        keyStore.setKey(group.getKey());
-                        keyStore.setGroupName(group.getGroupName());
-                        keyStore.setColor(group.getColor());
+                        staticGroupHolder.setGroup(group);
                         startMessaging();
                     }
                 });
                 viewHolder.setGroupName(group.getGroupName());
-                viewHolder.checkAllowable(firebaseUser.getEmail().toLowerCase());
+                viewHolder.checkAllowable(userEmail);
             }
         };
         Log.i(TAG ,"Got data!");
@@ -82,12 +116,22 @@ public class GroupActivity extends AppCompatActivity {
         });
     }
 
-    public void initializeGroupActivity() {
-        initializeFirebaseUser();
-        initializeSingoutButton();
-        initializeGroupList();
-        initializeAddGroup();
-        initializeChangeLanguage();
+    public void startMessaging() {
+        startActivity(new Intent(context, MessageActivity.class));
+    }
+
+    private void initializeAddGroup() {
+        ImageButton addGroup = (ImageButton) findViewById(R.id.addgroupButton);
+        addGroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startAddGroup();
+            }
+        });
+    }
+
+    public void startAddGroup(){
+        startActivity(new Intent(context, AddGroup.class));
     }
 
     private void initializeChangeLanguage() {
@@ -103,54 +147,4 @@ public class GroupActivity extends AppCompatActivity {
     public void startChangeLanguageActivity() {
         startActivity(new Intent(context, SelectLanguage.class));
     }
-
-    private void initializeAddGroup() {
-        ImageButton addGroup = (ImageButton) findViewById(R.id.addgroupButton);
-        addGroup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startAddGroup();
-            }
-        });
-    }
-
-    private void initializeGroupList() {
-        groupList = (RecyclerView) findViewById(R.id.groupList);
-        setupDataBind();
-        groupList.setLayoutManager(layoutManager);
-        groupList.setAdapter(firebaseRecyclerAdapter);
-        Log.i(TAG, "Set adapter!");
-    }
-
-    public void initializeFirebaseUser() {
-        firebaseAuth = FirebaseAuth.getInstance();
-        firebaseUser = firebaseAuth.getCurrentUser();
-        if (firebaseUser == null) {
-            startActivity(new Intent(this, SignInActivity.class));
-            finish();
-        } else {
-            String username = firebaseUser.getDisplayName();
-        }
-    }
-
-    public void initializeSingoutButton() {
-        ImageButton signoutButton = (ImageButton) findViewById(R.id.signoutbutton);
-        signoutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                firebaseAuth.signOut();
-                startActivity(new Intent(context, SignInActivity.class));
-                finish();
-            }
-        });
-    }
-
-    public void startMessaging() {
-        startActivity(new Intent(context, MessageActivity.class));
-    }
-
-    public void startAddGroup(){
-        startActivity(new Intent(context, AddGroup.class));
-    }
-
 }

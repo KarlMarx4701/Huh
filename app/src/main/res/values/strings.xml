@@ -1,14 +1,15 @@
 <resources>
-    <string name="app_name">Huh</string>
+    <string name="app_name">Huh?</string>
     <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
     <string name="groupNameString">Group Name:</string>
-    <string name="color_prompt">Choose a color...</string>
-
-    <string-array name="colors_array">
-        <item>Red</item>
-        <item>Orange</item>
-        <item>Blue</item>
-        <item>Green</item>
-        <item>Purple</item>
-    </string-array>
+    <string name="username">Username</string>
+    <string name="timestamp">Timestamp</string>
+    <string name="button">Button</string>
+    <string name="textview">TextView</string>
+    <string name="group">Group!</string>
+    <string name="user_email">User Email:</string>
+    <string name="add_user">Add User</string>
+    <string name="remove_user">Remove User</string>
+    <string name="update">Update</string>
+    <string name="create">Create</string>
 </resources>

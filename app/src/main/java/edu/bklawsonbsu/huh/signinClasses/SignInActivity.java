@@ -1,4 +1,4 @@
-package edu.bklawsonbsu.huh.sourceFiles.signinClasses;
+package edu.bklawsonbsu.huh.signinClasses;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -24,8 +24,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 import edu.bklawsonbsu.huh.R;
-import edu.bklawsonbsu.huh.sourceFiles.groupClasses.GroupActivity;
-
+import edu.bklawsonbsu.huh.groupClasses.GroupActivity;
 
 public class SignInActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
     private static final int RC_SIGN_IN = 9001;

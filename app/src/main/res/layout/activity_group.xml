@@ -5,9 +5,8 @@
     android:id="@+id/activity_group"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".sourceFiles.groupClasses.GroupActivity"
+    tools:context=".groupClasses.GroupActivity"
     android:theme="@style/AppTheme2"
-    android:elevation="0dp"
     android:weightSum="1"
     android:layout_centerHorizontal="false"
     android:baselineAligned="false"
@@ -25,7 +24,9 @@
             android:layout_height="match_parent"
             app:srcCompat="@drawable/logo_shadow"
             android:id="@+id/usernameLogo"
-            android:scaleType="fitCenter" />
+            android:scaleType="fitCenter"
+            android:contentDescription="HuhLogo"
+            tools:ignore="HardcodedText" />
     </LinearLayout>
 
     <GridLayout
@@ -41,18 +42,20 @@
             android:layout_height="50dp"
             app:srcCompat="@drawable/translation"
             android:id="@+id/changeLangButton"
-            android:layout_weight="0.94"
             android:scaleType="fitCenter"
-            android:background="@color/transparent" />
+            android:background="@color/transparent"
+            android:contentDescription="TranslationButton"
+            tools:ignore="HardcodedText" />
 
         <ImageButton
             android:layout_width="75dp"
             android:layout_height="50dp"
             app:srcCompat="@drawable/addgroup"
             android:id="@+id/addgroupButton"
-            android:layout_weight="0.94"
             android:scaleType="fitCenter"
-            android:background="@android:color/transparent" />
+            android:background="@android:color/transparent"
+            android:contentDescription="AddGroupButton"
+            tools:ignore="HardcodedText" />
 
         <ImageButton
             android:layout_height="50dp"
@@ -60,7 +63,9 @@
             android:id="@+id/signoutbutton"
             android:scaleType="fitCenter"
             android:background="@android:color/transparent"
-            android:layout_width="75dp" />
+            android:layout_width="75dp"
+            android:contentDescription="SignoutButton"
+            tools:ignore="HardcodedText" />
     </GridLayout>
 
     <android.support.v7.widget.RecyclerView

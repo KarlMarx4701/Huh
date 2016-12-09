@@ -1,11 +1,11 @@
-package edu.bklawsonbsu.huh.tests.translation;
+package edu.bklawsonbsu.huh.tests;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import edu.bklawsonbsu.huh.sourceFiles.translationClasses.YandexLinkBuilder;
+import edu.bklawsonbsu.huh.translationClasses.YandexLinkBuilder;
 
-public class LinkTests {
+public class LinkTest {
     private YandexLinkBuilder yandexLinkBuilder = new YandexLinkBuilder();
 
     @Test

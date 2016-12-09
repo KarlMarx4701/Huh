@@ -1,26 +1,28 @@
-package edu.bklawsonbsu.huh.sourceFiles.groupClasses;
+package edu.bklawsonbsu.huh.groupClasses;
 
 import java.util.ArrayList;
+import java.util.Map;
 
-@SuppressWarnings({"WeakerAccess", "unused"}) // Both must be used for recycler view and connection to the database.
+import edu.bklawsonbsu.huh.messageClasses.Message;
+
+@SuppressWarnings("WeakerAccess") // Both must be used for recycler view and connection to the database.
 public class Group {
     private String groupName;
     private String photoUrl;
     private String users;
     private ArrayList<String> usersAllowedList = new ArrayList<>();
+    private Map<String, Message> messages;
     private String key;
-    private String color;
     private String owner;
 
     @SuppressWarnings("unused") //Empty Constructor must be in the class for recycler view.
     public Group() {}
 
-    public Group(String groupName, String photoUrl, String users, String key, String color, String owner) {
+    public Group(String groupName, String photoUrl, String users, String key, String owner) {
         this.groupName = groupName;
         this.photoUrl = photoUrl;
         this.users = users;
         this.key = key;
-        this.color = color;
         this.owner = owner;
     }
 
@@ -35,6 +37,7 @@ public class Group {
         return groupName;
     }
 
+    @SuppressWarnings("unused")
     public String getPhotoUrl() {
         return photoUrl;
     }
@@ -47,10 +50,6 @@ public class Group {
         return key;
     }
 
-    public String getColor() {
-        return color;
-    }
-
     public String getOwner() {
         return owner;
     }
@@ -59,6 +58,7 @@ public class Group {
         this.groupName = groupName;
     }
 
+    @SuppressWarnings("unused") // Unused is for Firebase data binding. These will be utilized by the program.
     public void setPhotoUrl(String photoUrl) {
         this.photoUrl = photoUrl;
     }
@@ -67,14 +67,12 @@ public class Group {
         this.users = userString;
     }
 
+    @SuppressWarnings("unused")
     public void setKey(String key) {
         this.key = key;
     }
 
-    public void setColor(String color) {
-        this.color = color;
-    }
-
+    @SuppressWarnings("unused")
     public void setOwner(String owner) {
         this.owner = owner;
     }
@@ -82,6 +80,16 @@ public class Group {
     public boolean isAllowed(String email) {
         splitUsers();
         return usersAllowedList.contains(email);
+    }
+
+    @SuppressWarnings("unused")
+    public void setMessages(Map<String, Message> messages) {
+        this.messages = messages;
+    }
+
+    @SuppressWarnings("unused")
+    public Map<String, Message> getMessages() {
+        return messages;
     }
 
 }
