@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--suppress CheckTagEmptyBody -->
+<?xml version="1.0" encoding="utf-8"?><!-- suppress CheckTagEmptyBody -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="edu.bklawsonbsu.huh">
@@ -11,18 +10,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".groupClasses.GroupActivity"></activity>
+        <activity android:name=".groupClasses.GroupActivity" />
         <activity android:name=".signinClasses.SignInActivity">
+        </activity>
+        <activity android:name=".messageClasses.MessageActivity" />
+        <activity android:name=".groupClasses.AddGroup" />
+        <activity android:name=".changeLanguageClasses.SelectLanguage" />
+        <activity android:name=".messageClasses.GroupSettingsActivity" />
+        <activity android:name=".chatServiceActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".messageClasses.MessageActivity" />
-        <activity android:name=".groupClasses.AddGroup"></activity>
-        <activity android:name=".changeLanguageClasses.SelectLanguage"></activity>
-        <activity android:name=".messageClasses.GroupSettingsActivity"></activity>
+        <activity android:name=".loginchatServiceActivity">
+        </activity>
     </application>
 
 </manifest>
