@@ -13,8 +13,8 @@ public class Translator {
     private Thread thread;
 
     public Translator() {
-        linkBuilder = new YandexLinkBuilder();
-        dataFetcher = new XMLFetcher();
+        linkBuilder = new YandexLinkBuilder(); //calls YandexLinkBuilder
+        dataFetcher = new XMLFetcher(); //calls XMLFetcher
 
         thread = new Thread(new Runnable() {
 

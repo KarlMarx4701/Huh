@@ -16,7 +16,7 @@ android {
         }
     }
     compileSdkVersion 24
-    buildToolsVersion "24.0.0"
+    buildToolsVersion '25.0.0'
     defaultConfig {
         applicationId "edu.bklawsonbsu.huh"
         minSdkVersion 15
