@@ -13,7 +13,7 @@ import javax.xml.parsers.ParserConfigurationException;
 @SuppressWarnings("WeakerAccess") //Inspection Problems
 public class XMLFetcher {
 
-    public Document getXMLDocument(String linkText) {
+    public Document getXMLDocument(String linkText) { //Takes string and sends to XML
         Document document = null;
         try {
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
