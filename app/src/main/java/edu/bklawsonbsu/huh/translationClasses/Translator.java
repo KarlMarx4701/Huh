@@ -37,7 +37,7 @@ public class Translator {
         });
 
         thread.setPriority(Process.THREAD_PRIORITY_BACKGROUND);
-    } //still dont know what this does
+    } //still don't know what this does
 
     public String translateText(String text, String languageCode) {
         link = linkBuilder.getLink(text, languageCode);
