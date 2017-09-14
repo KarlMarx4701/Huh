@@ -5,3 +5,6 @@ Evan Fischer, and Bradley Strayer. When installing the APK from Android Studio, 
 
 # Features:
 Huh? takes messaging to the next level with its automatic translation and language detection. Utilizing Yandex Translation, Huh? is able to complete smash the language barrier of every kind. Huh? also uses a sleek and clean UI design to allow users the easiest and most convenient use of the app. 
+
+# Current State:
+Huh? is currently not being worked on for now. It was a project that was for a class, but no longer needs attention. We learned many skills that we did not know before and refined our programming abilities greatly.
